@@ -1,27 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>Your Name | Profile</title>
+    <meta name="description" content="Personal profile of Your Name.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website!</h1>
-        <p>Created using Visual Studio Code</p>
-    </header>
+    <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark theme">🌙</button>
 
-    <main>
-        <h2>About Me</h2>
-        <p>This is my first website project.</p>
-        <button onclick="showMessage()">Click Me</button>
-        <p id="message"></p>
+    <main class="profile">
+        <div class="cover"></div>
+
+        <section class="card">
+            <div class="avatar" role="img" aria-label="Profile photo placeholder">YN</div>
+            <h1>Your Name</h1>
+            <p class="title">Aspiring Web Developer</p>
+            <p class="location">📍 Manila, Philippines</p>
+
+            <p class="bio">Hi! I'm just getting started with web development. I enjoy learning how websites are built and making small projects that actually work.</p>
+
+            <div class="actions">
+                <a class="btn" href="mailto:you@example.com">Contact me</a>
+                <button id="copy-btn" class="btn btn-outline" data-email="you@example.com">Copy email</button>
+            </div>
+            <p id="status" class="status" aria-live="polite"></p>
+        </section>
+
+        <section class="card">
+            <h2>About</h2>
+            <p>I'm learning HTML, CSS and JavaScript. This page is my first profile website, built with Visual Studio Code. I'm looking forward to building more projects and learning along the way.</p>
+        </section>
+
+        <section class="card">
+            <h2>Skills</h2>
+            <ul class="chips">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+                <li>VS Code</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Links</h2>
+            <ul class="links">
+                <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="mailto:you@example.com">you@example.com</a></li>
+            </ul>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2026 My Website</p>
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> Your Name</p>
     </footer>
 
     <script src="script.js"></script>

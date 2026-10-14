@@ -1,41 +1,135 @@
+:root {
+    --bg: #f0f2f5;
+    --surface: #ffffff;
+    --ink: #1c1e21;
+    --muted: #65676b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --on-accent: #ffffff;
+    --chip: #e7f0ff;
+    --chip-ink: #1d4ed8;
+    --line: #dddfe2;
+}
+:root[data-theme="dark"] {
+    --bg: #18191a;
+    --surface: #242526;
+    --ink: #e4e6eb;
+    --muted: #a8abb0;
+    --accent: #6b9bff;
+    --accent-hover: #8ab0ff;
+    --on-accent: #18191a;
+    --chip: #263a63;
+    --chip-ink: #bcd1ff;
+    --line: #3a3b3c;
+}
+
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--ink);
+}
+
+h1 { font-size: 1.9rem; margin: 12px 0 0; }
+h2 { font-size: 1.15rem; margin: 0 0 12px; }
+p { margin: 0 0 12px; color: var(--muted); }
+
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.profile { max-width: 680px; margin: 0 auto; padding: 0 16px 24px; }
+
+.cover {
+    height: 190px;
+    margin: 0 -16px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+@media (min-width: 712px) {
+    .cover { margin: 16px 0 0; border-radius: 12px; }
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 16px;
+}
+
+/* Header card */
+.card:first-of-type {
     text-align: center;
+    margin-top: -70px;
+    position: relative;
 }
-
-header {
-    background-color: #2563eb;
-    color: white;
-    padding: 30px 15px;
+.avatar {
+    width: 120px;
+    height: 120px;
+    margin: -84px auto 0;
+    border-radius: 50%;
+    border: 5px solid var(--surface);
+    background: var(--accent);
+    color: var(--on-accent);
+    display: grid;
+    place-items: center;
+    font-size: 2.4rem;
+    font-weight: 700;
 }
+.title { font-size: 1.05rem; color: var(--ink); margin: 4px 0; }
+.location { font-size: 0.9rem; }
+.bio { max-width: 52ch; margin: 16px auto 20px; }
 
-main {
-    background-color: white;
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 10px;
+.actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--on-accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 22px;
+    font: 500 1rem "Inter", Arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
 }
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-outline { background: transparent; color: var(--accent); }
+.btn-outline:hover { background: var(--chip); border-color: var(--accent); }
+.status { min-height: 1.6em; margin: 12px 0 0; font-size: 0.9rem; }
 
-button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
+/* Skills & links */
+.chips, .links { list-style: none; margin: 0; padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+    background: var(--chip);
+    color: var(--chip-ink);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.links li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.links li:last-child { border-bottom: none; padding-bottom: 0; }
+.links a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.links a:hover { text-decoration: underline; }
+
+.theme-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #1d4ed8;
-}
-
-footer {
-    background-color: #222;
-    color: white;
-    padding: 15px;
-}
+.site-footer { text-align: center; padding: 8px 16px 32px; font-size: 0.9rem; }
+.site-footer p { margin: 0; }
